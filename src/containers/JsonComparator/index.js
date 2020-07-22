@@ -45,7 +45,7 @@ class JsonComparator extends Component {
     return (
       <div>
         <div className="score-box">
-          <h1>Difference in JSON objects Calculator</h1>
+          <h1>JSON diff calculator</h1>
           <span className="score">score: {score}</span>
         </div>
         <div className="main-container">
