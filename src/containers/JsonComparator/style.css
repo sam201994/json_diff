@@ -1,0 +1,21 @@
+.main-container {
+  display: flex;
+  justify-content: center;  
+  margin-top: 1em;
+}
+.button-container {
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  width: 150px;
+}
+
+.score-box {
+  display: flex;
+  justify-content: center; 
+  flex-direction: column;
+  align-items: center;
+}
+.score {
+  color: red;
+}

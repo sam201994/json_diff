@@ -1,0 +1,14 @@
+.button-compare {
+  background-color: lightblue;
+  padding: 20px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  border-color: transparent;
+}
+
+.button-compare:hover {
+  background-color: #4CAF50; /* shade of  light green */
+  color: white;
+   cursor: pointer;
+}

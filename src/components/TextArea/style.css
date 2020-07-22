@@ -1,0 +1,15 @@
+.text-area-container {
+  margin-left: 2em;
+  margin-right: 2em;
+  width: 100%;
+}
+
+.text-area-json {
+  width: 100%;
+  min-height: 500px;
+  flex-grow:1;
+  background: #f3f3f3;
+  border-radius: 4px;
+  resize: vertical;
+  white-space: pre;
+}
