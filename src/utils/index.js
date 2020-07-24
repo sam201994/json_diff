@@ -14,7 +14,7 @@ const calculateScoreForJsonObjects = (ob1, ob2) => {
   if (!isValidJsonObjects(ob1, ob2)) return 'Invalid JSON objects';
 
   if (Object.keys(ob1).length === 0 && Object.keys(ob2).length === 0)
-    return (1).toFixed(4);
+    return (1).toFixed(4); // edge case for empty JSON object
 
   const diffInArrays = (a1, a2) => {
     if (a1.length !== a2.length) {
@@ -28,15 +28,18 @@ const calculateScoreForJsonObjects = (ob1, ob2) => {
         return;
       }
       if (Array.isArray(val1)) {
+        // calculate diff recursively between two values if type is array
         diffInArrays(val1, val2);
         return;
       }
       if (typeof val1 === 'object') {
+        // cal diff recursively between two values if type is object
         // eslint-disable-next-line
         diffInJsonObjects(val1, val2);
         return;
       }
       if (!(val1 === val2)) {
+        // cal diff between two values if type is string, boolean, number, null
         diffCount += 1;
       }
     });
@@ -45,7 +48,7 @@ const calculateScoreForJsonObjects = (ob1, ob2) => {
   const diffInJsonObjects = (obj1, obj2) => {
     const set1 = new Set(Object.keys(obj1));
     const set2 = new Set(Object.keys(obj2));
-    const union = new Set([...set1, ...set2]);
+    const union = new Set([...set1, ...set2]); // find out a set of keys in both objects
 
     union.forEach(key => {
       const val1 = obj1[key];
@@ -54,18 +57,22 @@ const calculateScoreForJsonObjects = (ob1, ob2) => {
         sameCount += 1;
       }
       if (!checkIfBasicTypesAreEqual(val1, val2)) {
+        // check if both values are of same type
         diffCount += 1;
         return;
       }
       if (Array.isArray(val1)) {
+        // calculate diff recursively between two values if type is array
         diffInArrays(val1, val2);
         return;
       }
       if (typeof val1 === 'object') {
+        // cal diff recursively between two values if type is object
         diffInJsonObjects(val1, val2);
         return;
       }
       if (!(val1 === val2)) {
+        // cal diff between two values if type is string, boolean, number, null
         diffCount += 1;
       }
     });
